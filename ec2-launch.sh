@@ -5,7 +5,7 @@
 #ec2-authorize default -P tcp -p 22 -s 0.0.0.0/0
 
 # The Static IP Address for this instance:
-IP_ADDRESS=$(cat ~/.ec2/ip_address)
+# IP_ADDRESS=$(cat ~/.ec2/ip_address)
 
 # Create new t2.micro instance using ami-cef405a7 (64 bit Ubuntu Server 10.10 Maverick Meerkat)
 # using the default security group and a 16GB EBS datastore as /dev/sda1.
