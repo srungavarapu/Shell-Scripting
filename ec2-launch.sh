@@ -11,8 +11,7 @@
 # using the default security group and a 16GB EBS datastore as /dev/sda1.
 # EC2_INSTANCE_KEY is an environment variable containing the name of the instance key.
 # --block-device-mapping ...:false to leave the disk image around after terminating instance
-EC2_RUN_RESULT=$(ec2-run-instances --instance-type t2.micro --image-id ami-0bb6af715826253bf --security-group-ids sg-008147de9733254d3 --region us-east-1 --block-device-mapping "/dev/sda1=:16:true" --instance-initiated-shutdown-behavior stop --user-data-file instance_installs.sh ami-cef405a7)
-
+EC2_RUN_RESULT=$(aws ec2 run-instances --image-id ami-0bb6af715826253bf --security-group-ids sg-008147de9733254d3 --instance-type t2.micro)
 INSTANCE_NAME=$(echo ${EC2_RUN_RESULT} | sed 's/RESERVATION.*INSTANCE //' | sed 's/ .*//')
 
 times=0
